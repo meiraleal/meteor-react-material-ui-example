@@ -22,7 +22,7 @@ export default function RecordList(props) {
           <TableRow key={index}>
             <TableRowColumn>{index + 1}</TableRowColumn>
             {fields.map(field => (
-              <TableRowColumn key={field.key}>{row[field.key]}</TableRowColumn>
+                <TableRowColumn key={field.key}>{row[field.key].toString()}</TableRowColumn>
                   ))}
             <TableRowColumn>
               <DeleteRecord collection={props.collection} rowIndex={index + 1} recordId={row._id} />

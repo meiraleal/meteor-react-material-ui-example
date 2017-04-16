@@ -7,12 +7,12 @@ const schema = new SimpleSchema({
   city: String,
   address: String,
   telephone: String,
-  pets: {
-    type: Array,
-    optional: true,
-    uniforms: () => false,
-  },
-  'pets.$': String,
+  //pets: {
+  //  type: Array,
+  //  optional: true,
+  //  uniforms: () => false,
+  //},
+  //'pets.$': String,
 });
 
 const Owners = new Mongo.Collection('owners');

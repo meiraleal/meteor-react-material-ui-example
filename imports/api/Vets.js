@@ -12,6 +12,7 @@ const schema = new SimpleSchema({
     uniforms: {
       checkboxes: true,
       options: () => {
+        Meteor.subscribe('Collection.all', 'Specialties');
         const specialties = Specialties.find().fetch();
         return specialties.map(obj => ({ label: obj.name, value: obj.name }));
       },
