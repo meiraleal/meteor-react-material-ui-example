@@ -1,18 +1,35 @@
 import { Meteor } from 'meteor/meteor';
-import SimpleSchema from 'simpl-schema';
 import { Mongo } from 'meteor/mongo';
+import SimpleSchema from 'simpl-schema';
 import LongTextField from 'uniforms-material/LongTextField';
-import Pets from './Pets';
+import Customers from './Customers';
+import Vets from './Vets';
+
 
 const schema = new SimpleSchema({
     pet: {
         type: String,
         uniforms: {
             options: () => {
-                Meteor.subscribe('Collection.all', 'Pets');
-                const pets = Pets.find().fetch();
-                console.log(pets);
-                return pets.map(pet => ({ label: pet.name, value: pet._id }));
+                Meteor.subscribe('Collection.all', 'Customers');
+                const customers = Customers.find().fetch();
+                let options = [];
+                customers.map(customer =>
+                              customer.pets.map((pet) =>
+                                                options.push({ label: pet.name + " - " + customer.name,
+                                                               value: pet.name + " - " + customer.name })));
+                console.log(options);
+                return options;
+            },
+        },
+    },
+    veterinary: {
+        type: String,
+        uniforms: {
+            options: () => {
+                Meteor.subscribe('Collection.all', 'Vets');
+                const vets = Vets.find().fetch();
+                return vets.map(vet => ({ label: vet.name, value: vet.name }));
             },
         },
     },

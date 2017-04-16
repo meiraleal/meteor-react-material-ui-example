@@ -31,9 +31,12 @@ export default class CreateRecord extends React.Component {
         return (
             <div>
               <RaisedButton label="New" primary={true} onTouchTap={this.handleOpen} icon={<ContentAdd/>}/>
-              <Dialog title="New Record" open={this.state.open} onRequestClose={this.handleClose}>
+              <div style={this.state.open ? {} : {display: "none"}}>
+                <br/>
+                <h2>Create new Record</h2>
+                <br/>
                 <AutoForm schema={this.props.collection.simpleSchema()} style={this.style} onSubmit={this.handleSubmit}/>
-              </Dialog>
+              </div>
             </div>
         );
     }

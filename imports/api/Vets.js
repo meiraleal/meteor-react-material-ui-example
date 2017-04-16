@@ -4,8 +4,7 @@ import Specialties from './Specialties';
 
 SimpleSchema.extendOptions(['uniforms']);
 const schema = new SimpleSchema({
-  firstName: String,
-  lastName: String,
+  name: String,
   specialties: {
     type: Array,
     optional: true,

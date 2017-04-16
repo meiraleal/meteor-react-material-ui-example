@@ -10,7 +10,7 @@ export default class CollectionPage extends React.Component {
     super(props);
     this.state = { data: [] };
   }
-  componentWillMount() {
+  componentDidMount() {
     Tracker.autorun(() => {
       this.sub = Meteor.subscribe('Collection.all', this.props.collectionName);
       this.setState({ data: this.props.collection.find().fetch() });
