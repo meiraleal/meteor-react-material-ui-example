@@ -6,12 +6,12 @@ import Types from '../../api/Types';
 import Specialties from '../../api/Specialties';
 
 const collections = {
-    Pets: Pets,
-    Vets: Vets,
-    Visits: Visits,
-    Owners: Owners,
-    Types: Types,
-    Specialties: Specialties
+  Pets,
+  Vets,
+  Visits,
+  Owners,
+  Types,
+  Specialties,
 };
 
 export default collections;

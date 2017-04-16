@@ -1,14 +1,14 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
 const InsertRecordReducer = (state = [], action) => {
-    switch (action.type) {
+  switch (action.type) {
     case 'INSERT_RECORD':
-        return action.record;
+      return action.record;
     default:
-        return state;
-    }
+      return state;
+  }
 };
 
-const reducers = combineReducers({insertRecord: InsertRecordReducer});
+const reducers = combineReducers({ insertRecord: InsertRecordReducer });
 
 export default reducers;

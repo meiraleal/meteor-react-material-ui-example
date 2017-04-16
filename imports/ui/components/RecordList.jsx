@@ -4,8 +4,7 @@ import DeleteRecord from './DeleteRecord';
 import EditRecord from './EditRecord';
 
 export default function RecordList(props) {
-  const fields = props.schema._schemaKeys.map(key => ({ key, label: props.schema.label(key) }))
-          .filter((item, pos, ary) => !pos || item.label != ary[pos - 1].label);
+  const fields = props.schema._schemaKeys.map(key => ({ key, label: props.schema.label(key) })).filter((item, pos, ary) => !pos || item.label != ary[pos - 1].label);
   return (
     <Table>
       <TableHeader>

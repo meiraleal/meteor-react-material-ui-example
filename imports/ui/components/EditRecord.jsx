@@ -30,14 +30,9 @@ export default class EditRecord extends React.Component {
     render() {
         return (
             <div>
-              <RaisedButton label="Edit" primary={true}
-                            onTouchTap={this.handleOpen}
-                            icon={<ContentCreate/>}/>
-              <Dialog title="Edit Record" open={this.state.open}
-                      onRequestClose={this.handleClose}>
-                <AutoForm model={this.props.doc}
-                          schema={this.props.collection.simpleSchema()}
-                          style={this.style} onSubmit={this.handleSubmit}/>
+              <RaisedButton label="Edit" primary={true} onTouchTap={this.handleOpen} icon={<ContentCreate/>}/>
+              <Dialog title="Edit Record" open={this.state.open} onRequestClose={this.handleClose}>
+                <AutoForm model={this.props.doc} schema={this.props.collection.simpleSchema()} style={this.style} onSubmit={this.handleSubmit}/>
               </Dialog>
             </div>
         );

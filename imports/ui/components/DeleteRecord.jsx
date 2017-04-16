@@ -29,18 +29,15 @@ export default class DeleteRecord extends React.Component {
     render() {
         const actions = [
                 <FlatButton label="Cancel" primary={true} onTouchTap={this.handleClose} />,
-            <FlatButton label="Sure, remove!" primary={true} onTouchTap={this.handleRemove} />
-            ];
-            return (
-                <div>
-                  <RaisedButton label="Remove" secondary={true}
-                                onTouchTap={this.handleOpen} icon={<ContentClear/>}/>
-                  <Dialog title={"Remove Record #"+ this.props.rowIndex}
-                          actions={actions} open={this.state.open}
-                          onRequestClose={this.handleClose}>
-                    Are you sure you want to remove it?
-                  </Dialog>
-                </div>
-            );
+                <FlatButton label="Sure, remove!" primary={true} onTouchTap={this.handleRemove} />
+        ];
+        return (
+            <div>
+              <RaisedButton label="Remove" secondary={true} onTouchTap={this.handleOpen} icon={<ContentClear/>}/>
+                <Dialog title={"Remove Record #"+ this.props.rowIndex} actions={actions} open={this.state.open} onRequestClose={this.handleClose}>
+                Are you sure you want to remove it?
+              </Dialog>
+            </div>
+        );
     }
 }

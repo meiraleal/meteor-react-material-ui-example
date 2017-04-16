@@ -16,16 +16,19 @@
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "simpl-schema": "^0.2.3",
     "uniforms": "^1.17.2",
     "uniforms-material": "^1.17.2"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.2",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-meteor": "^4.0.1",
     "eslint-plugin-react": "^6.10.3"
   }
 }
