@@ -7,40 +7,39 @@ import Vets from './Vets';
 
 
 const schema = new SimpleSchema({
-    pet: {
-        type: String,
-        uniforms: {
-            options: () => {
-                Meteor.subscribe('Collection.all', 'Customers');
-                const customers = Customers.find().fetch();
-                let options = [];
-                customers.map(customer =>
-                              customer.pets.map((pet) =>
-                                                options.push({ label: pet.name + " - " + customer.name,
-                                                               value: pet.name + " - " + customer.name })));
-                console.log(options);
-                return options;
-            },
-        },
+  pet: {
+    type: String,
+    uniforms: {
+      options: () => {
+        Meteor.subscribe('Collection.all', 'Customers');
+        const customers = Customers.find().fetch();
+        const options = [];
+        customers.map(customer =>
+                              customer.pets.map(pet =>
+                                                options.push({ label: `${pet.name} - ${customer.name}`,
+                                                  value: `${pet.name} - ${customer.name}` })));
+        return options;
+      },
     },
-    veterinary: {
-        type: String,
-        uniforms: {
-            options: () => {
-                Meteor.subscribe('Collection.all', 'Vets');
-                const vets = Vets.find().fetch();
-                return vets.map(vet => ({ label: vet.name, value: vet.name }));
-            },
-        },
+  },
+  veterinary: {
+    type: String,
+    uniforms: {
+      options: () => {
+        Meteor.subscribe('Collection.all', 'Vets');
+        const vets = Vets.find().fetch();
+        return vets.map(vet => ({ label: vet.name, value: vet.name }));
+      },
     },
-    visitDate: Date,
-    description: {
-        type: String,
-        uniforms: {
-            component: LongTextField,
-            rows: 5
-        }
-    }
+  },
+  visitDate: Date,
+  description: {
+    type: String,
+    uniforms: {
+      component: LongTextField,
+      rows: 5,
+    },
+  },
 });
 
 const Visits = new Mongo.Collection('visits');
@@ -48,9 +47,9 @@ const Visits = new Mongo.Collection('visits');
 Visits.attachSchema(schema);
 
 Visits.allow({
-    insert() { return true; },
-    update() { return true; },
-    remove() { return true; },
+  insert() { return true; },
+  update() { return true; },
+  remove() { return true; },
 });
 
 export default Visits;

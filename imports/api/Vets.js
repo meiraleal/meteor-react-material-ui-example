@@ -1,5 +1,6 @@
 import SimpleSchema from 'simpl-schema';
 import { Mongo } from 'meteor/mongo';
+import { Tracker } from 'meteor/tracker';
 import Specialties from './Specialties';
 
 SimpleSchema.extendOptions(['uniforms']);

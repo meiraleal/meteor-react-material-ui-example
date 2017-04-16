@@ -5,11 +5,11 @@ import Types from '../../api/Types';
 import Specialties from '../../api/Specialties';
 
 const collections = {
-    Customers,
-    Vets,
-    Visits,
-    Types,
-    Specialties,
+  Customers,
+  Vets,
+  Visits,
+  Types,
+  Specialties,
 };
 
 export default collections;
